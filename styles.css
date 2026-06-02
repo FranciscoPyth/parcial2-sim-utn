@@ -1,0 +1,344 @@
+/* === Reset suave === */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: #f4f6f9;
+  color: #1f2933;
+  line-height: 1.55;
+}
+h1, h2, h3, h4 { margin: 0 0 .4em; line-height: 1.25; }
+p { margin: 0 0 .8em; }
+a { color: #1f6feb; }
+
+/* === Topbar === */
+.topbar {
+  background: linear-gradient(120deg, #0b3a6f, #1158a8);
+  color: white;
+  padding: 18px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.brand { display: flex; align-items: center; gap: 14px; }
+.brand h1 { font-size: 22px; font-weight: 700; }
+.brand .sub { margin: 0; font-size: 13px; opacity: .85; }
+.logo {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  background: rgba(255,255,255,.16);
+  display: grid; place-items: center;
+  font-weight: 800;
+  letter-spacing: .5px;
+  border: 1px solid rgba(255,255,255,.25);
+}
+.ghost-btn {
+  color: white;
+  border: 1px solid rgba(255,255,255,.4);
+  padding: 8px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 13px;
+}
+.ghost-btn:hover { background: rgba(255,255,255,.1); }
+
+/* === Tabs === */
+.tabs {
+  background: white;
+  border-bottom: 1px solid #d9e1ec;
+  padding: 0 28px;
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+}
+.tab {
+  background: none;
+  border: none;
+  padding: 14px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #5a6573;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  font-family: inherit;
+}
+.tab:hover:not(:disabled) { color: #0b3a6f; }
+.tab.active {
+  color: #0b3a6f;
+  border-bottom-color: #0b3a6f;
+}
+.tab:disabled {
+  color: #b6becc;
+  cursor: not-allowed;
+}
+.tab .badge {
+  font-size: 10px;
+  background: #e6edf6;
+  padding: 2px 6px;
+  border-radius: 8px;
+  margin-left: 6px;
+  font-weight: 700;
+}
+
+/* === Main layout === */
+main {
+  max-width: 980px;
+  margin: 28px auto;
+  padding: 0 20px 60px;
+}
+
+/* === Card === */
+.card {
+  background: white;
+  border: 1px solid #d9e1ec;
+  border-radius: 10px;
+  padding: 20px 22px;
+  margin-bottom: 18px;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, .04);
+}
+.card h2 {
+  font-size: 18px;
+  color: #0b3a6f;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.card h2 .icon {
+  width: 26px; height: 26px;
+  background: #e6edf6;
+  color: #0b3a6f;
+  border-radius: 6px;
+  display: grid; place-items: center;
+  font-size: 14px;
+}
+
+/* === Tabla de notas === */
+.scale-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin: 8px 0 4px;
+}
+.scale-table th, .scale-table td {
+  border: 1px solid #d9e1ec;
+  padding: 6px 10px;
+  text-align: center;
+}
+.scale-table th { background: #f4f6f9; font-weight: 700; }
+.scale-table .ok { background: #e6f4ea; }
+.scale-table .no { background: #fbe9e7; }
+
+/* === Enunciado === */
+.enunciado-wrap details summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: #0b3a6f;
+  font-size: 15px;
+  padding: 4px 0;
+  list-style: none;
+}
+.enunciado-wrap details summary::-webkit-details-marker { display: none; }
+.enunciado-wrap details summary::before {
+  content: "▾ ";
+  display: inline-block;
+  transition: transform .15s;
+}
+.enunciado-wrap details:not([open]) summary::before { content: "▸ "; }
+.enunciado-body {
+  margin-top: 14px;
+  background: #fcfdff;
+  border: 1px dashed #cfd9e8;
+  padding: 18px 22px;
+  border-radius: 8px;
+  font-size: 14.5px;
+}
+.enunciado-body mark {
+  background: transparent;
+  color: inherit;
+  font-weight: inherit;
+  padding: 0;
+}
+.enunciado-body .nota { color: #6c2c2c; font-size: 13.5px; }
+.pdf-actions { margin-top: 12px; display: flex; gap: 10px; flex-wrap: wrap; }
+.iter-hint { margin-top: 10px; font-size: 12.5px; color: #5a6573; font-style: italic; }
+.btn {
+  background: #0b3a6f;
+  color: white;
+  border: none;
+  padding: 9px 16px;
+  border-radius: 7px;
+  font-size: 13.5px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.btn:hover { background: #0a3262; }
+.btn.secondary {
+  background: white;
+  color: #0b3a6f;
+  border: 1px solid #0b3a6f;
+}
+.btn.secondary:hover { background: #eef3fb; }
+.btn.danger {
+  background: white;
+  color: #b42318;
+  border: 1px solid #b42318;
+}
+.btn.danger:hover { background: #fdecea; }
+
+/* === Preguntas === */
+.question {
+  background: white;
+  border: 1px solid #d9e1ec;
+  border-radius: 10px;
+  margin-bottom: 14px;
+  overflow: hidden;
+}
+.question-head {
+  background: #f4f6f9;
+  padding: 10px 18px;
+  border-bottom: 1px solid #d9e1ec;
+  font-size: 13px;
+  color: #5a6573;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.question-head .num {
+  font-weight: 700;
+  color: #0b3a6f;
+}
+.question-head .estado {
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+.question-head .estado.pending { color: #8a6500; }
+.question-head .estado.ok { color: #1e7a3b; }
+.question-head .estado.fail { color: #b42318; }
+.question-body { padding: 16px 20px 18px; }
+.question-body .enunciado { font-weight: 500; margin-bottom: 14px; }
+
+/* === Opciones === */
+.options { display: flex; flex-direction: column; gap: 8px; }
+.option {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid #e2e6ee;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 14.5px;
+  transition: background .1s, border-color .1s;
+}
+.option:hover { background: #f9fbff; border-color: #c6d2e3; }
+.option input { margin-top: 3px; }
+.option.correct  { background: #e6f4ea; border-color: #1e7a3b; }
+.option.wrong    { background: #fdecea; border-color: #b42318; }
+.option.missed   { background: #fff7df; border-color: #c99500; }
+.option .feedback-tag {
+  margin-left: auto;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+.option.correct .feedback-tag { background: #1e7a3b; color: white; }
+.option.wrong .feedback-tag   { background: #b42318; color: white; }
+.option.missed .feedback-tag  { background: #c99500; color: white; }
+
+/* === Numéricos === */
+.numeric-fields { display: flex; flex-direction: column; gap: 10px; }
+.numeric-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.numeric-row label {
+  flex: 1;
+  min-width: 280px;
+  font-size: 14.5px;
+}
+.numeric-row input {
+  width: 110px;
+  padding: 7px 10px;
+  border: 1px solid #c6d2e3;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  text-align: right;
+}
+.numeric-row input:focus { outline: 2px solid #1f6feb; border-color: #1f6feb; }
+.numeric-row input.correct { border-color: #1e7a3b; background: #e6f4ea; }
+.numeric-row input.wrong   { border-color: #b42318; background: #fdecea; }
+.numeric-row input.missed  { border-color: #c99500; background: #fff7df; }
+.numeric-row .sufijo { font-size: 13px; color: #5a6573; }
+.numeric-row .esperado {
+  font-size: 12px;
+  color: #5a6573;
+  font-style: italic;
+}
+.numeric-row .esperado strong { color: #0b3a6f; font-style: normal; }
+
+/* === Explicación === */
+.explicacion {
+  margin-top: 14px;
+  padding: 10px 14px;
+  background: #eef3fb;
+  border-left: 3px solid #1f6feb;
+  border-radius: 4px;
+  font-size: 13.5px;
+}
+.explicacion strong { color: #0b3a6f; }
+
+/* === Acciones === */
+.actions {
+  position: sticky;
+  bottom: 14px;
+  background: white;
+  border: 1px solid #d9e1ec;
+  border-radius: 12px;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, .08);
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+.actions .score {
+  margin-left: auto;
+  font-size: 15px;
+  font-weight: 700;
+  color: #0b3a6f;
+}
+.actions .score .nota { color: #1e7a3b; }
+.actions .score .nota.bajo { color: #b42318; }
+
+/* === Footer === */
+.footer {
+  text-align: center;
+  padding: 30px 20px 50px;
+  color: #6c7686;
+  font-size: 13px;
+}
+
+@media (max-width: 640px) {
+  .topbar { padding: 14px 16px; }
+  .brand h1 { font-size: 18px; }
+  .tabs { padding: 0 12px; }
+  .actions { flex-direction: column; align-items: stretch; }
+  .actions .score { margin-left: 0; text-align: center; }
+}
