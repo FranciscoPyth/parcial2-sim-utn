@@ -156,38 +156,37 @@ window.TURNO_1 = {
     },
     {
       id: 'p11', numero: 11, tipo: 'numeric',
-      enunciado: 'Vector estado con el 11° evento. Simule los siguientes 3 eventos. Responda con 2 decimales:',
+      enunciado: 'Vector estado con el 11° evento. Simule los siguientes 3 eventos. Responda con 2 decimales (excepto las colas):',
       campos: [
-        { label: 'En evento 12. Cola de Pacientes Especialidad =', correcto: 19.69, tol: 0.01 },
-        { label: 'Fin Atención 1 =', correcto: 25.59, tol: 0.01 },
-        { label: 'Fin Atención 2 =', correcto: 32.34, tol: 0.01 },
-        { label: 'En evento 14. Fin Ayuda Telefónica =', correcto: 24.69, tol: 0.01 },
-        { label: 'AC Tiempo de Perm. en Cola =', correcto: 44.99, tol: 0.01 },
+        { label: 'En evento 12. Cola de Pacientes Especialidad =', correcto: 1, tol: 0.01 },
+        { label: 'Fin Atención 1 =', correcto: 29.99, tol: 0.01 },
+        { label: 'En evento 14. Fin Ayuda Telefónica =', correcto: 29.69, tol: 0.01 },
+        { label: 'AC Tiempo de Perm. en Cola =', correcto: 22.46, tol: 0.01 },
       ],
-      explicacion: 'Recordar que la llamada telefónica la atiende Médico 1 salvo que esté con consulta especializada (ahí va Médico 2, libre o no).'
+      explicacion: 'Recordar: los AC Ocupado de cada médico son síncronos (se actualizan en cada iteración), pero el AC Tiempo de Perm. en Cola es asíncrono — sólo se incrementa cuando un paciente completa su espera y entra a atención.'
     },
     {
       id: 'p13', numero: 13, tipo: 'numeric',
-      enunciado: 'Vector estado con el 15° evento. Simule los siguientes 3 eventos (hasta el evento 18). Responda con 2 decimales:',
+      enunciado: 'Vector estado con el 15° evento. Simule los siguientes 4 eventos (hasta el evento 19). Responda con 2 decimales (excepto las colas):',
       campos: [
-        { label: 'En evento 16. AC Ocupado 2 (Médico 2) =', correcto: 22.40, tol: 0.01 },
-        { label: 'En Espera 2 =', correcto: 35.32, tol: 0.01 },
-        { label: 'En evento 19. Próxima llegada General =', correcto: null, tol: 0.01, placeholder: '?' },
-        { label: 'Fin Espera General 1 =', correcto: null, tol: 0.01, placeholder: '?' },
-        { label: 'Cont. Pac. con atención Médico 2 =', correcto: null, tol: 0.01, placeholder: '?' },
+        { label: 'En evento 18. AC Ocupado 2 (Médico 2) =', correcto: 16.92, tol: 0.01 },
+        { label: 'Fin Atención 2 =', correcto: 39.12, tol: 0.01 },
+        { label: 'En evento 19. Próxima llegada General =', correcto: 39.03, tol: 0.01 },
+        { label: 'Fin Espera General 1 =', correcto: 46.84, tol: 0.01 },
+        { label: 'Cont. Pac. con acceso a Médico =', correcto: 7, tol: 0.01 },
       ],
-      explicacion: 'Los valores del evento 19 quedaron sin completar en el parcial original — pueden recalcularse en el Excel de la materia.'
+      explicacion: 'El AC Ocupado del médico es síncrono: en cada evento se le suma el delta de tiempo que estuvo ocupado entre el evento anterior y el actual. Sólo cuenta tiempo atendiendo pacientes de la guardia (excluye llamadas telefónicas).'
     },
     {
       id: 'p15', numero: 15, tipo: 'numeric',
       enunciado: 'De acuerdo a la simulación realizada, responda las preguntas del enunciado:',
       campos: [
-        { label: 'Cantidad de pacientes que abandonaron la cuenta =', correcto: null, tol: 0.01, placeholder: '?' },
-        { label: 'Porcentaje de ocupación del Médico 1 =', correcto: null, tol: 0.01, sufijo: '%', placeholder: '?' },
-        { label: 'Porcentaje de ocupación del Médico 2 =', correcto: null, tol: 0.01, sufijo: '%', placeholder: '?' },
-        { label: 'Tiempo medio de permanencia en cola de cada paciente (sin abandonos) =', correcto: null, tol: 0.01, sufijo: 'min', placeholder: '?' },
+        { label: 'Cantidad de pacientes que abandonan la guardia =', correcto: 1, tol: 0.01 },
+        { label: 'Porcentaje de ocupación del Médico 1 =', correcto: 94.11, tol: 0.01, sufijo: '%' },
+        { label: 'Porcentaje de ocupación del Médico 2 =', correcto: 61.05, tol: 0.01, sufijo: '%' },
+        { label: 'Tiempo medio de permanencia en cola de cada paciente (sin incluir a los pacientes que abandonan la espera) =', correcto: 5.56, tol: 0.01, sufijo: 'min' },
       ],
-      explicacion: 'Estos resultados dependen del corrido completo de la simulación; se obtienen del Excel del Turno 1.'
+      explicacion: '% ocupación = (AC Ocupado del médico ÷ tiempo total de simulación) × 100, considerando sólo el tiempo atendiendo pacientes de la guardia (excluye llamadas telefónicas). Tiempo medio en cola = AC Tiempo de Perm. en Cola ÷ Cant. Pac. con acceso a Médico.'
     },
   ]
 };
